@@ -14,6 +14,8 @@
 * limitations under the License.
 **/
 
+console.log('This shows up in console');
+
 // create and set menu
 var menu = Titanium.UI.createMenu(),
 fileItem = Titanium.UI.createMenuItem('File'),
@@ -23,5 +25,14 @@ exitItem = fileItem.addItem('Exit', function() {
   }
 });
 
+console.log('Some error happened above, and this does not show up in console, and no visible error was thrown above');
+console.log('No subsequent code in this include is evaluated...');
+
 menu.appendItem(fileItem);
 Titanium.UI.setMenu(menu);
+
+console.log('So for instance if I define an important function here below any error condition');
+
+var important = function() {
+	console.log('Very important');
+}
